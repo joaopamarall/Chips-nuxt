@@ -1,8 +1,12 @@
 <template>
   <div class="chips">
-    <div v-for="(gender, index) in genderOptions" :key="index">
-      <Chips :gender="gender" :active="gender === selectedGender" @click.native="selectGender(gender)" />
-    </div>
+    <Chips 
+      v-for="(gender, index) in gender"
+      :key="index"
+      :gender="gender"
+      :active= "gender === selectedGender"
+      @click.native="selectgender(gender)"
+    />
   </div>
 </template>
 
@@ -16,15 +20,16 @@ export default {
   },
   data() {
     return {
-      genderOptions: ["Mulheres", "Homens", "Trans"],
+      gender: ["Mulheres", "Homens", "Trans"],
       selectedGender: "Mulheres",
+      isActive: false
     };
   },
   methods: {
-    selectGender(gender) {
+    selectgender(gender) {
       this.selectedGender = gender;
-      const newRoute = `/gender/${gender.toLowerCase()}`;
-      window.location.pathname = newRoute;
+      const newRoute = `/${gender.toLowerCase()}`;
+      window.history.replaceState(null, null, newRoute);
     },
   },
 };

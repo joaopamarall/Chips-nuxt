@@ -1,5 +1,5 @@
 <template>
-  <div class="chip" :class="{ 'active': isActive }" @click="handleClick">
+  <div class="chip" :class="{labelClasses}">
     {{ gender }}
   </div>
 </template>
@@ -11,15 +11,18 @@ export default {
     gender: String,
     isActive: Boolean,
   },
-  methods: {
-    handleClick() {
-      this.$emit('click', this.gender);
+  computed: {
+    labelClasses() {
+      return {
+        chip: true,
+        isActive: this.isActive,
+      };
     },
   },
 };
 </script>
 
-<style>
+<style >
 .chip {
   background-color: rgb(206, 230, 241);
   color: rgb(90, 136, 121);
@@ -29,7 +32,7 @@ export default {
   cursor: pointer;
 }
 
-.chip.active {
+.chip.isActive {
   background-color: rgba(93, 122, 137, 1);
   color: #fff;
 }
