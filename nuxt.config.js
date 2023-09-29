@@ -18,8 +18,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/scss/label.scss'
   ],
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -29,7 +29,21 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/style-resources',
+    ['@nuxtjs/storybook']
   ],
+
+  storybook: {
+    // Options
+    url:'http://localhost:6006',
+    port:6006
+  },
+
+  styleResources: {
+    scss: [
+      '@/assets/scss/label.scss', // Substitua pelo caminho correto do seu arquivo de variáveis SASS
+    ],
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

@@ -1,6 +1,6 @@
 <template>
-  <div class="chip" :class="{labelClasses}">
-    {{ gender }}
+  <div class="chip" :class="{ 'is-active': isActive }">
+    {{ label }}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'Chips',
   props: {
-    gender: String,
+    label: String,
     isActive: Boolean,
   },
   computed: {
@@ -22,18 +22,18 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss" >
 .chip {
-  background-color: rgb(206, 230, 241);
-  color: rgb(90, 136, 121);
-  border: 2px solid rgb(90, 136, 121);
-  border-radius: 40px;
-  padding: 8px;
-  cursor: pointer;
-}
+    background-color: marrom;
+    color: branco;
+    border: solid 2px marrom;
+    border-radius: 40px;
+    padding: 8px;
+    cursor: pointer;
 
-.chip.isActive {
-  background-color: rgba(93, 122, 137, 1);
-  color: #fff;
-}
+    &.is-active {
+      background-color: marrom;
+      color: preto;
+    }
+  }
 </style>
