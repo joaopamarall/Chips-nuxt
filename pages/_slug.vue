@@ -1,17 +1,22 @@
 <template>
-  <div class="chips">
-    <Chips
-      v-for="(gender, index) in genderOptions"
-      :key="index"
-      :label="gender"
-      :isActive="isGenderActive(gender)"
-      @click.native="selectGender(gender)"
-    />
+  <div>
+    <div>
+      <router-link to="/">Ir para home</router-link>
+    </div>
+    <div class="chips">
+      <Chips
+        v-for="(gender, index) in genderOptions"
+        :key="index"
+        :label="gender"
+        :isActive="isGenderActive(gender)"
+        @click.native="selectGender(gender)"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import Chips from '@/components/Chips.vue';
+import Chips from "@/components/Chips.vue";
 
 export default {
   name: "indexPage",
@@ -20,7 +25,7 @@ export default {
   },
   data() {
     return {
-      genderOptions: ["Mulheres", "Homens", "Trans"],
+      genderOptions: ["Mulheres", "Homens", "Crianças"],
       selectedGender: "Mulheres",
     };
   },
